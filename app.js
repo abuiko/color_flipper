@@ -1,15 +1,17 @@
-const btn = document.querySelector(".btn");
 const background = document.querySelector('.background');
 const colorName = document.getElementById('color');
+const btn = document.querySelector(".btn");
 
-let colors = ['red', 'green', 'lightblue', 'yellow', 'purple'];
+let letters = '0123456789ABCDEF';
+let hash = '#';
+let splitLetters = letters.split('');
 
-btn.addEventListener('click', () => {
-    let randomNumber = randomColor();
-    background.style.backgroundColor = colors[randomNumber];
-    colorName.innerHTML = colors[randomNumber];
-})
+for (let i = 0; i < 6; i++) {
+    const random = randomNumber();
+    let color = splitLetters[random];
+    hash += color;
+}
 
-function randomColor() {
-    return Math.floor(Math.random() * colors.length);
+function randomNumber() {
+    return Math.floor(Math.random() * 16);
 }
